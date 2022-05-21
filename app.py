@@ -32,6 +32,16 @@ def add_stock():
       for key, value in request.form.items():
           print(f'{key}: {value}')
           
+      try:
+          stock_data = StockModel(
+              stock_symbol=request.form['stock_symbol'],
+              number_of_shares=request.form['number_of_shares'],
+              purchase_price=request.form['purchase_price']
+          )
+          print(stock_data_
+     except ValidationError as e:
+         print(e)
+
     return render_template('add_stock.html')
 
 @app.route('/stocks/')
